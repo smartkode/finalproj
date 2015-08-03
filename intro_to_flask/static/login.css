@@ -1,0 +1,31 @@
+.element-box-login
+{
+padding-left: 135px;
+}
+
+#loginbutton {
+    height: 40px;
+    width: 220px;
+    border-radius: 24px;
+    background-color: white;   
+    font-weight: bold;
+    color: #3498DB;
+}
+
+#button-case {
+    padding-right: 30px;
+}
+
+#input-840139285605833295, #input-879903820738937466
+{
+    border-radius: 25px;
+}
+
+body
+{
+    color:azure;
+}
+#tks-login-screen
+{
+    font-family: "Oxygen",sans-serif;
+}

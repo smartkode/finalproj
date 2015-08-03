@@ -1,0 +1,247 @@
+body
+{
+    overflow-y:scroll;
+}
+#content{
+    width: 70%;
+    margin: 0 auto;
+}
+
+#profile_info
+{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 710px;
+    position:relative;
+    float:left;
+}
+
+#gaurdian_info
+{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 710px;
+    position:relative;
+    float:left;
+}
+#profile_pic
+{
+    height:250px;
+}
+#sta
+{
+    
+}
+
+#sta-panel
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.poiref
+{
+    background-color:aqua;
+    width:100%;
+    text-align: left;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    border-radius:25px;
+    height:26px;
+
+}
+
+.profilebutton
+{
+    position: relative;
+    margin: 0px auto;
+    background-color: rgb(134,100,900);
+    border-radius: 20px;
+    height: 40px;
+    width: 130px;
+}
+
+.left-ref 
+{
+    position:relative;
+    float:left;
+    width:195px;
+}
+
+.value-text
+{
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.right-ref
+{
+    position:relative;
+    float:left;
+    width:195px;
+}
+
+.value-text.value-inputtext
+{
+    width:490px;
+}
+
+.right-ref2
+{
+    position:relative;
+    float:left;
+    width:515px;
+}
+
+.pic{
+    width: 300px; height: 250px;
+    position: relative;
+    float: left;
+}
+
+.label-css
+{
+    margin: 10px;
+    font-size: 1.5em;
+}
+
+.line-divider
+{
+    background-color: black;
+    height: 1px;
+    width: 95%;
+    margin: 0px auto;
+    position: relative;
+
+}
+
+body{
+    background-color:#192089;
+}
+
+#head
+{
+    height:126px;
+    width:100%;
+    margin:0 auto;
+}
+
+#view-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 4;
+    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.25);
+    background: #FFF none repeat scroll 0% 0%;
+}
+
+#header-wrap{
+    background: #3498DB none repeat scroll 0% 0%;
+    width: 100%;
+    font-family: "Oxygen",sans-serif;
+    font-size: 17px;
+    line-height: 26px;
+    color: #535353;
+    font-weight: 300;
+}
+
+.wsite-theme-365164435420771451 #icontent {
+    font-family: "Oxygen",sans-serif;
+    font-size: 17px;
+    line-height: 26px;
+    color: #535353;
+    font-weight: 300;
+    height: 100%;
+}
+
+#icontent_container{
+    min-height: 126px;
+}
+
+.wsite-theme-365164435420771451 #header td {
+    vertical-align: middle;
+    text-align: left;
+}
+.wsite-theme-365164435420771451 #logo, .wsite-theme-365164435420771451 #logo a {
+    color: #FFF;
+    font-size: 34px;
+    line-height: 40px;
+    font-family: "Lustria",serif;
+    text-decoration: none;
+    margin-left: 27px;
+}
+.wsite-theme-365164435420771451 #logo, .wsite-theme-365164435420771451 .search {
+    width: 250px;
+}
+
+#weebly-area-1 {
+    display: inline-block;
+}
+.weebly-image-area, .weebly-logo-area {
+    display: inline-block;
+}
+
+.wsite-theme-365164435420771451 .nav {
+    clear: both;
+    overflow: hidden;
+    position: relative;
+}
+
+.wsite-theme-365164435420771451 .nav ul {
+    list-style: outside none none;
+    text-align: center;
+}
+
+.wsite-theme-365164435420771451 .nav ul li {
+    list-style: outside none none;
+    display: inline-block;
+    margin-right: 45px;
+    background: transparent none repeat scroll 0% 0%;
+}
+
+.wsite-theme-365164435420771451 .nav ul li a {
+    display: inline-block;
+    font-family: "Oxygen",sans-serif;
+    color: #FFF;
+    text-decoration: none;
+    padding: 33px 0px;
+    border: 0px none;
+    outline: 0px none;
+    list-style-type: none;
+    font-size: 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+#profilesec
+{
+    top: 127px;
+    position: relative;
+    left:95px;
+    width:750px;
+    height:1000px;
+    font-family: Oxygen;
+
+}
+
+#scroll-tks_container {
+    z-index: 4;
+    /*height: 100%;*/
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+    transition: left 0.5s linear 0s;
+}
+#scroll-tks_container {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    /*overflow-y: scroll;
+    overflow-x: auto;
+    */
+    height: 126px !important;
+}
