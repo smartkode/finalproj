@@ -7,8 +7,6 @@ CREATE TABLE officer (userid INT NOT NULL AUTO_INCREMENT UNIQUE, email_address V
 
 CREATE TABLE fullname ( userid INT NOT NULL AUTO_INCREMENT UNIQUE, first_name VARCHAR(255), last_name VARCHAR(255), FOREIGN KEY (userid) REFERENCES officer(userid));
 
-INSERT INTO officer (email_address, password, role, division, station, name) VALUES ('tks.tman@gmail.com', 'DDI', 'password','KSC', 'Half Way Tree', 'TeranStone');
-
 CREATE TABLE investigator (userid INT NOT NULL AUTO_INCREMENT UNIQUE,  index_cardid INT, PRIMARY KEY(userid),  FOREIGN KEY (userid) REFERENCES officer(userid));
 
 CREATE TABLE index_card (index_cardid INT NOT NULL AUTO_INCREMENT UNIQUE, caseid VARCHAR(255), date_assigned DATETIME);
@@ -43,5 +41,18 @@ CREATE TABLE reference_no (reportid INT NOT NULL AUTO_INCREMENT, crime_reference
 
 CREATE TABLE victim_telephone (reportid INT NOT NULL AUTO_INCREMENT, victim_telephone_number VARCHAR(255), PRIMARY KEY (reportid));
 
-INSERT INTO officer (email_address, password, role, division, station, name) VALUES ('jeria.levy@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'JeriaLevy'), ('johnbrwon@gmail.com', 'password', 'DDI', 'KSC', 'Down Town', 'JohnBrown'), ('maryjane@gmail.com', 'password',  'DDI', 'KSC', 'Mona', 'MaryJane'), ('jsonswaby@gmail.com', 'password',  'DDI', 'KSC', 'Down Town', 'JsonSwaby'), ('henrymorgan@gmail.com', 'password',  'DDI', 'KSC', 'Papine', 'HenryMorgan'), ('gracepowell@gmail.com', 'password', 'DDI', 'KSC', 'Papine', 'GracePowell'), ('orvillecase@gmail.com', 'password', 'DDI', 'KSC', 'Mountain View', 'OrvilleCase'), ('damionwalters@gmail.com', 'password', 'DDI', 'KSC', 'Mountain View', 'Damion Walters'), ('garciagreen@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'Garcia Green'), ('paullevy@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'Paul Levy');
+INSERT INTO officer (email_address, password, role, division, station, name) VALUES ('jeria.levy@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'Jeria Levy'), ('johnbrwon@gmail.com', 'password', 'DDI', 'KSC', 'Down Town', 'John Brown'), ('maryjane@gmail.com', 'password',  'DDI', 'KSC', 'Mona', 'Mary Jane'), ('jsonswaby@gmail.com', 'password',  'DDI', 'KSC', 'Down Town', 'Jason Swaby'), ('henrymorgan@gmail.com', 'password',  'DDI', 'KSC', 'Papine', 'Henry Morgan'), ('gracepowell@gmail.com', 'password', 'DDI', 'KSC', 'Papine', 'Grace Powell'), ('orvillecase@gmail.com', 'password', 'DDI', 'KSC', 'Mountain View', 'Orville Case'), ('damionwalters@gmail.com', 'password', 'DDI', 'KSC', 'Mountain View', 'Damion Walters'), ('garciagreen@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'Garcia Green'), ('paullevy@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'Paul Levy');
 
+INSERT INTO fullname (first_name, last_name) VALUES ('Jeria', 'Levy'), ('John', 'Brown'), ('Mary', 'Jane'), ('Jason', 'Swaby'), ('Henry', 'Morgan'), ('Grace','Powell'), ('Orville','Case'), ('Damion','Walters'), ('Garcia','Green'), ('Paul','Levy');
+
+INSERT INTO investigator (index_cardid) VALUES ('001'), ('002'), ('003'), ('004'), ('005'), ('006'), ('007'), ('008'), ('009'), ('010');
+
+INSERT INTO index_card (caseid, date_assigned) VALUES ('5123','2015-01-09 11:32:06'), ('5124','2015-01-18 07:42:05'), ('5125','2015-02-03 08:25:04'), ('5126','2015-02-08 09:57:03'), ('5127','2015-02-19 10:34:02'), ('5128','2015-04-07 09:28:01'), ('5129','2015-03-18 10:19:05'), ('5130','2015-05-20 10:34:04'), ('5132','2015-05-28 10:23:09'), ('5132','2015-06-13 09:34:07');
+
+INSERT INTO detective (unit) VALUES ('3A82'), ('3A83'), ('3A84'), ('3A84'), ('3A85'), ('3A85'), ('3A85'), ('3A82'), ('3A83'), ('3A84');
+
+INSERT INTO account_manager (Security_key) VALUES ('7653452'), ('7650937'), ('7653846'), ('7652001'), ('7651240'), ('7657700'), ('7651120'), ('7653323'), ('7651515'), ('7650998');
+
+INSERT INTO add_user (date_added) VALUES ('2015-01-09 11:32:06'), ('2015-01-18 07:42:05'), ('2015-02-03 08:25:04'), ('2015-02-08 09:57:03'), ('2015-02-19 10:34:02'), ('2015-04-07 09:28:01'), ('2015-03-18 10:19:05'), ('2015-05-20 10:34:04'), ('2015-05-28 10:23:09'), ('2015-06-13 09:34:07');
+
+INSERT INTO creates (date_created) VALUES ('2015-02-08 09:57:03'), ('2015-02-03 08:25:04'), ('2015-05-28 10:23:09'), ('2015-06-13 09:34:07'), ('2015-02-19 10:34:02'), ('2015-04-07 09:28:01'), ('2015-01-09 11:32:06'), ('2015-01-18 07:42:05'), ('2015-03-18 10:19:05'), ('2015-05-20 10:34:04');
