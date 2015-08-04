@@ -1,0 +1,40 @@
+.landing-page
+{
+    position:relative;
+    margin:0 auto;
+    width:950px;
+    
+}
+.wsite-header {
+    background-image: url("http://jeriawebs.weebly.com/uploads/5/7/3/2/57325081/header_images/1438242265.jpg") !important;
+    background-position: 0px 0px !important;
+    height:251px;
+}
+
+#banner-wrap .container {
+    width: 960px;
+    position: relative;
+    z-index: 1;
+}
+
+#banner {
+    background-color:#E7E7E7;
+    width: 960px;
+    height: 251px;
+}
+
+#banner-wrap {
+    background-color: white; 
+    border-bottom: 1px solid #DEDEDE;
+}
+
+#header-wrap-about {
+    padding: 30px 0px;
+    background: #FFF none repeat scroll 0% 0%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.05);
+    width:100%;
+    font-size: 36px;
+    color: #353535;
+}

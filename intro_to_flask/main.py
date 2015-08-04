@@ -31,9 +31,9 @@ def testdb():
 ###
 
 @app.route('/')
-def home():
-    """Render website's home page."""
-    return render_template('home.html')
+def home(name=None):
+    """Render the website's home page."""
+    return render_template('home2.html',name=name)
     
 
 @app.route('/about/')
@@ -43,19 +43,26 @@ def about(name=None):
 
 @app.route('/profile/')
 def profile(name=None):
-    """Render the website's about page."""
+    """Render the website's profile page."""
     return render_template('profile.html',name=name)
+    
+@app.route('/contact/')
+def contact(name=None):
+    """Render the website's contact page."""
+    return render_template('contact.html',name=name)
+
+
 
 @app.route('/profile/edit/')
 def profileedit(name=None):
-    """Render the website's about page."""
+    """Render the website's edit profile page."""
     return render_template('profileedit.html',name=name)
     
 
 
 @app.route('/login/')
 def login(name=None):
-    """Render the website's about page."""
+    """Render the website's login page."""
     return render_template('login.html',name=name)
     #
 @app.route('/report/')

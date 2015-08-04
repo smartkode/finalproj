@@ -17,7 +17,6 @@ CREATE TABLE detective (userid INT NOT NULL AUTO_INCREMENT UNIQUE, unit VARCHAR(
 
 CREATE TABLE account_manager (userid INT NOT NULL AUTO_INCREMENT UNIQUE, security_key VARCHAR(255), PRIMARY KEY(userid),  FOREIGN KEY (userid) REFERENCES officer(userid));
 
-
 CREATE TABLE add_user (userid INT NOT NULL AUTO_INCREMENT, groupid INT NOT NULL, date_added DATETIME, account_managerid INT NOT NULL, PRIMARY KEY(userid, groupid),  FOREIGN KEY (userid) REFERENCES officer(userid), FOREIGN KEY (account_managerid) REFERENCES officer(userid));
 
 CREATE TABLE creates (userid INT NOT NULL AUTO_INCREMENT, groupid INT NOT NULL, date_created DATETIME , PRIMARY KEY(userid, groupid),  FOREIGN KEY (userid) REFERENCES officer(userid));
@@ -36,13 +35,13 @@ CREATE TABLE profile (profileid INT NOT NULL AUTO_INCREMENT, picture BLOB, home_
 
 CREATE TABLE witness ( witnessid INT NOT NULL AUTO_INCREMENT, witness_info  INT NOT NULL, witness_statement VARCHAR(255), dates_available DATETIME, reportid INT NOT NULL, FOREIGN KEY (witness_info) REFERENCES profile (profileid), FOREIGN KEY (reportid) REFERENCES report(reportid), PRIMARY KEY(witnessid));
 
-
 CREATE TABLE prof_aliases (profileid INT NOT NULL AUTO_INCREMENT, aliases VARCHAR(255), PRIMARY KEY (profileid));
 
 CREATE TABLE person_of_interest (poiid INT NOT NULL AUTO_INCREMENT, profileid INT NOT NULL, reportid INT, FOREIGN KEY (profileid) REFERENCES profile(profileid), FOREIGN KEY (reportid ) REFERENCES report(reportid), PRIMARY KEY(poiid));
 
- 
-
 CREATE TABLE reference_no (reportid INT NOT NULL AUTO_INCREMENT, crime_reference_number VARCHAR(255), PRIMARY KEY (reportid));
 
 CREATE TABLE victim_telephone (reportid INT NOT NULL AUTO_INCREMENT, victim_telephone_number VARCHAR(255), PRIMARY KEY (reportid));
+
+INSERT INTO officer (email_address, password, role, division, station, name) VALUES ('jeria.levy@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'JeriaLevy'), ('johnbrwon@gmail.com', 'password', 'DDI', 'KSC', 'Down Town', 'JohnBrown'), ('maryjane@gmail.com', 'password',  'DDI', 'KSC', 'Mona', 'MaryJane'), ('jsonswaby@gmail.com', 'password',  'DDI', 'KSC', 'Down Town', 'JsonSwaby'), ('henrymorgan@gmail.com', 'password',  'DDI', 'KSC', 'Papine', 'HenryMorgan'), ('gracepowell@gmail.com', 'password', 'DDI', 'KSC', 'Papine', 'GracePowell'), ('orvillecase@gmail.com', 'password', 'DDI', 'KSC', 'Mountain View', 'OrvilleCase'), ('damionwalters@gmail.com', 'password', 'DDI', 'KSC', 'Mountain View', 'Damion Walters'), ('garciagreen@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'Garcia Green'), ('paullevy@gmail.com', 'password', 'DDI', 'KSC', 'Mona', 'Paul Levy');
+
