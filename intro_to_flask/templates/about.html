@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+		<div id="header-wrap-about">
+			<div class="container">
+				<table id="header">
+					<tbody><tr>
+						<td id="logo">
+						    <span class="wsite-logo">
+	                            <span id="wsite-title">L.I.V.E&nbsp;<br>Legal Investigations Virtual Environment</span>
+	                        </span>
+	                    </td>
+						<td id="header-right">
+							<table>
+								<tbody>
+								    <tr>
+									    <td class="phone-number"></td>
+									    <td class="social"><div style="text-align:left;"><div style="height:0px;overflow:hidden"></div>
+                                        <span class="wsite-social wsite-social-default">
+                                            <a class="first-child wsite-social-item wsite-social-facebook" href="http://facebook.com" target="_blank">
+                                                <span class="wsite-social-item-inner"></span>
+                                            </a>
+                                            <a class="wsite-social-item wsite-social-twitter" href="http://twitter.com" target="_blank">
+                                                <span class="wsite-social-item-inner"></span>
+                                            </a>
+                                            <a class="last-child wsite-social-item wsite-social-linkedin" href="http://linkedin.com" target="_blank">
+                                                <span class="wsite-social-item-inner"></span>
+                                            </a>
+                                        </span>
+                                        <div style="height:0px;overflow:hidden"></div></div>
+                                        </td>
+									    <td class="search"></td>
+								    </tr>
+							</tbody></table>
+							<div class="clear"></div>
+						</td>
+					</tr>
+				</tbody></table>
+			</div><!-- end container -->
+		</div><!-- end header-wrap --> 
+
+    <div id="banner-wrap">
+        <div class="container">
+            <div id="banner">
+            
+                <div class="wsite-header"></div>
+                
+                <div style="clear:both;"></div>
+            </div><!-- end banner -->
+        </div><!-- end container -->
+    </div><!-- end banner-wrap -->
+
+    <div id="main-wrap">
+        <div class="container">
+   			<div id="wsite-content" class="wsite-elements wsite-not-footer">
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<h2 class="wsite-content-title" style="text-align:left;"><font color="#2a2a2a" size="4"><strong>Meet the Team</strong></font></h2>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div class="paragraph" style="text-align:left;"><strong><font color="#3f3f3f">Andrew Rhoden&nbsp;<br><br>Aundhrae Richardson<br><br>Craig McLaren&nbsp;<br><br>Teran Stone<br><br>Jeria Levy&nbsp;</font></strong></div></div>
+
+        </div><!-- end container -->
+    </div><!-- end main-wrap -->
+
+
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-0dYLvhSGGqUWo",
+labels:"l0,u57325081.u57325081s962754641261504921"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-0dYLvhSGGqUWo.gif?labels=l0,u57325081.u57325081s962754641261504921" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+<script>
+
+	(function(jQuery) {
+		try {
+			if (jQuery) {
+				jQuery('div.blog-social div.fb-like').attr('class', 'blog-social-item blog-fb-like');
+				var $commentFrame = jQuery('#commentArea iframe');
+				if ($commentFrame.length > 0) {
+					var frameHeight = jQuery($commentFrame[0].contentWindow.document).height() + 50;
+					$commentFrame.css('min-height', frameHeight + 'px');
+				}
+				if (jQuery('.product-button').length > 0){
+					jQuery(document).ready(function(){
+						jQuery('.product-button').parent().each(function(index, product){
+							if(jQuery(product).attr('target') == 'paypal'){
+								if (!jQuery(product).find('> [name="bn"]').length){
+									jQuery('<input>').attr({
+										type: 'hidden',
+										name: 'bn',
+										value: 'DragAndDropBuil_SP_EC'
+									}).appendTo(product);
+								}
+							}
+						});
+					});
+				}
+			}
+			else {
+				// Prototype
+				$$('div.blog-social div.fb-like').each(function(div) {
+					div.className = 'blog-social-item blog-fb-like';
+				});
+				$$('#commentArea iframe').each(function(iframe) {
+					iframe.style.minHeight = '410px';
+				});
+			}
+		}
+		catch(ex) {}
+	})(window._W && _W.jQuery);
+
+</script>
+
+
+		
+	
+
+<div id="wsite-menus"></div>
+
+{% endblock %}
