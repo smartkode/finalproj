@@ -2,6 +2,16 @@ body{
     background-color:#192089;
 }
 
+.welcome
+{
+    position:relative;
+    font-weight:bold;
+    text-align:center;
+    margin:0 auto;
+    font-size: 3em;
+    font-family: Oxygen;
+    
+}
 #head
 {
     height:300px;
