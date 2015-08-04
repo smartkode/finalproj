@@ -50,41 +50,16 @@ def profile(name=None):
 def profileedit(name=None):
     """Render the website's about page."""
     return render_template('profileedit.html',name=name)
-    
-
 
 @app.route('/login/')
 def login(name=None):
     """Render the website's about page."""
     return render_template('login.html',name=name)
-    #
-@app.route('/report/')
-def report(name=None):
-    """Render the website's about page."""
-    return render_template('report.html',name=name)
 
-@app.route('/report/edit/')
-def reportadd(name=None):
-    """Render the website's about page."""
-    return render_template('reportedit.html',name=name)
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-  form = SignupForm()
-   
-  if request.method == 'POST':
-    if form.validate() == False:
-      return render_template('signup.html', form=form)
-    else:
-      new_officer = Officer(form.firstname.data, form.lastname.data, form.email.data, form.password.data)
-      db.session.add(new_officer)
-      db.session.commit()
-       
-      return "[1] Create a new user [2] sign in the user [3] redirect to the user's profile"
-   
-  elif request.method == 'GET':
-    return render_template('signup.html', form=form)
- ###
+
+  
+###
 # The functions below should be applicable to all Flask apps.
 ###
 

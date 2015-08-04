@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title> L.I.V.E. : Home </title>
-        <meta content="no-cache" http-equiv="Pragma"></meta>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css')}}" />
+  <head>
+    <meta charset="utf-8" />
+    <title> L.I.V.E. : Profile </title>
+      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='profile.css')}}" /><meta content="no-cache" http-equiv="Pragma"></meta>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <!-- Adding Weebbly CSS -->
             <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cdn1.editmysite.com-weebly-images-blog_moderation-css-buildTime-1438245236.css')}}" />
@@ -12,15 +12,14 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cdn1.editmysite.com-weebly-images-slideshow-slideshow.css-buildTime-1438245236.css')}}" />
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cdn1.editmysite.com-weebly-mages-weebly_lightbox.css-buildTime-1438245236.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='editor-1.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='editor-2.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='editor-22.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts.googleapis.com-css-family-Open-Sans-400italic-700italic-300-400-700.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='googleapiOxygen-css.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='googleapisLustria-css.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mediaelementplayer.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mobile-sites.css')}}" />
-
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='profile.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='sites.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ui.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='weebly_dialog.css')}}" />
@@ -61,12 +60,12 @@
     </style>
         <!-- End Weebly CSS -->
 
-
-
-    </head>
-    <body>
-        <div id="view-container">
-            <div id="scroll_container">
+  </head>
+  <body>
+    <div id="profile">
+        <div id="content">
+            <div >
+            <div id="scroll-tks_container">
                 <div id="icontent_container" class="wsite-theme-365164435420771451" >
                     <div class="wsite-page-index short-header-page  wsite-theme-light" id="icontent">
                         <div id="head">
@@ -111,11 +110,73 @@
                 </div>
                         </div>
                     </div>
-        <!-- RHODEN ADD THE IMAGE HERE ->-->
-            <div class="welcome">WELCOME TO L.I.V.E</div>
-            <div class="welcome">LEGAL INVESTIGATIONS ENVIRONMENT</div>
                 </div>
             </div>
         </div>
-    </body>
+            <div id="profilesec">
+                <div id="profile_pic">
+                    <img class="pic" src="/static/img/maxresdefault.jpg">
+                    <div style="position: relative; float: left; height: 250px; width: 410px; background-color: white;" id="sta">
+                      <label id="sta-label" class="label-css" for="sta-panel">Offence</label>
+                        <div class="line-divider"></div>
+                      <div id="sta-panel">
+                          <div class="left-ref">
+                              <div class="poiref"><p class="value-text">Status:</p></div>
+                              <div class="poiref"><p class="value-text">Diary Entry #:</p></div>
+                              <div class="poiref"><p class="value-text">Location of Offence:</p></div>
+                              <div class="poiref"><p class="value-text">Sign. Landmark Nearby:</p></div>
+                              <div class="poiref"><p class="value-text">Offence:</p></div>
+                              <div class="poiref"><p class="value-text">Offence Code:</p></div>
+                              <div class="poiref"><p class="value-text">Date And Time Reported:</p></div>
+                              <div class="poiref"><p class="value-text">Weapon Used:</p></div>
+                          </div>
+                           <div class="right-ref">
+                              <div class="poiref"><input class="value-text" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text" placeholder="N/A"/></div>
+                          </div>
+                        </div>
+                     </div>
+                </div>
+                <div id="disbig">
+                    <div id="profile_info">
+                <div style="position: relative; float: left; height: 250px; width: 710px; background-color: white;" id="desc">
+                      <label id="desc-label" class="label-css" for="desc-panel">Victim Info</label>
+                        <div class="line-divider"></div>
+                      <div id="desc-panel">
+                          <div class="left-ref">
+                              <div class="poiref"><p class="value-text">Name of Victim:</p></div>
+                              <div class="poiref"><p class="value-text">Address of Victim:</p></div>
+                              <div class="poiref"><p class="value-text">Age of Victim:</p></div>
+                              <div class="poiref"><p class="value-text">Height of Victim:</p></div>
+                              <div class="poiref"><p class="value-text">Ethnicity of Victim:</p></div>
+                              
+                          </div>
+                           <div class="right-ref2">
+                              <div class="poiref"><input class="value-text value-inputtext" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text value-inputtext" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text value-inputtext" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text value-inputtext" placeholder="N/A"/></div>
+                              <div class="poiref"><input class="value-text value-inputtext" placeholder="N/A"/></div>
+                              
+                          </div>
+                        </div>
+                     </div>  
+                <button type="submit" id="saveprofile" class="profilebutton">SAVE</button>
+            </div>
+                    
+
+                </div>
+                </div>
+            </div>
+        </div>
+    <!--</div>-->
+    
+  
+</body>
 </html>
