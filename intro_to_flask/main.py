@@ -8,13 +8,23 @@ This file creates your application.
 
 from intro_to_flask import app
 from flask import Flask
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from models import db
 from forms import ContactForm
+from flask.ext.mail import Message, Mail
+
 #from flask.ext.mysqldb import MySQL
 #app = Flask(__name__)
+mail = Mail(app)
+mail.init_app(app)
 
 app.config['SECRET_KEY'] = '!q76$@8(8sdscjksfcbrvy; %$#'
+
+app.config["MAIL_SERVER"] = "smtp.mail.yahoo.com.com"
+app.config["MAIL_PORT"] = 587
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = 'craigh89@yahoo.com'
+app.config["MAIL_PASSWORD"] = 'RenVenrascal'
 
 #mysql = MySQL(app)
 
@@ -47,12 +57,22 @@ def profile(name=None):
     """Render the website's profile page."""
     return render_template('profile.html',name=name)
     
-@app.route('/contact/')
+@app.route('/contact/', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
-    
+
     if request.method == 'POST':
-        return 'Form posted.'
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('contact.html', form=form)
+        else:
+            msg = Message(form.subject.data, sender='craigh89@yahoo.com', recipients=['cmclaren89@gmail.com'])
+            msg.body = """
+            From: %s <%s>
+            %s
+            """ % (form.name.data, form.email.data, form.message.data)
+            mail.send(msg)
+            return 'Form posted.'
 
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
