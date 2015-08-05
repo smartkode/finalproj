@@ -10,10 +10,11 @@ from intro_to_flask import app
 from flask import Flask
 from flask import render_template, request, redirect, url_for
 from models import db
-
+from forms import ContactForm
 #from flask.ext.mysqldb import MySQL
 #app = Flask(__name__)
 
+app.config['SECRET_KEY'] = '!q76$@8(8sdscjksfcbrvy; %$#'
 
 #mysql = MySQL(app)
 
@@ -47,9 +48,14 @@ def profile(name=None):
     return render_template('profile.html',name=name)
     
 @app.route('/contact/')
-def contact(name=None):
-    """Render the website's contact page."""
-    return render_template('contact.html',name=name)
+def contact():
+    form = ContactForm()
+    
+    if request.method == 'POST':
+        return 'Form posted.'
+
+    elif request.method == 'GET':
+        return render_template('contact.html', form=form)
 
 
 
