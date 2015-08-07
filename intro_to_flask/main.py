@@ -27,7 +27,7 @@ app.config["MAIL_PASSWORD"] = 'wwhiimwvcrbnenpt'
 mail.init_app(app)
 
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'RenVenrascal'
+app.config['MYSQL_PASSWORD'] = 'live'
 app.config['MYSQL_DB'] = 'finalproj'
 
 # mysql = MySQL(app)
@@ -138,13 +138,13 @@ def signup():
     form = SignupForm()
    
     if request.method == 'POST':
-        if form.validate() == False:
-            flash('All fields are required.')
-            return render_template('signup.html', form=form)
-        else:
-            new_officer = Officer(form.firstname.data, form.lastname.data, form.email_address.data, form.password.data)
-            db.session.add(new_officer)
-            db.session.commit()
+        #if form.validate() == False:
+        #    flash('All fields are required.')
+        #    return render_template('signup.html', form=form)
+        #else:
+        new_officer = Officer(form.firstname.data, form.lastname.data, form.email_address.data, form.password.data)
+        db.session.add(new_officer)
+        db.session.commit()
         return "[1] Create a new user [2] sign in the user [3] redirect to the user's profile"
     elif request.method == 'GET':
         return render_template('signup.html', form=form)

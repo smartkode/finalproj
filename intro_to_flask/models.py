@@ -107,4 +107,4 @@ class Profile(db.Model):
         self.date_create=date_create
         
     def __repr__(self):
-        return '<User %r>' % self.userid
+        return '<User %r>' % self.useridref
