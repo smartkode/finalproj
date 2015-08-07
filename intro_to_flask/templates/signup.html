@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	<form action="{{ url_for('signup') }}" method="post">
+    	{{ form.hidden_tag() }}
+
+	 	{% for message in form.firstname.errors %}
+	  		<div class="flash">{{ message }}</div>
+		{% endfor %}
+
+	    {{ form.firstname.label }}
+	    {{ form.firstname }}
+	 
+	 	{% for message in form.lastname.errors %}
+	  		<div class="flash">{{ message }}</div>
+		{% endfor %}
+
+	    {{ form.lastname.label }}
+	    {{ form.lastname }}
+
+	 	{% for message in form.email_address.errors %}
+	  		<div class="flash">{{ message }}</div>
+		{% endfor %}
+
+	    {{ form.email_address.label }}
+	    {{ form.email_address }}
+	 
+
+	 	{% for message in form.password.errors %}
+	  		<div class="flash">{{ message }}</div>
+		{% endfor %}
+
+	    {{ form.password.label }}
+	    {{ form.password }}
+	 
+	    {{ form.submit }}
+  	</form>
+
+{% endblock %}

@@ -8,15 +8,31 @@ This file creates your application.
 
 from intro_to_flask import app
 from flask import Flask
-from flask import render_template, request, redirect, url_for
-from models import db
+from flask import render_template, request, redirect, url_for, flash
+from models import db, Officer
+from forms import ContactForm, ProfileForm, ReportForm, SignupForm, LoginForm
+from flask_mail import Message, Mail
 
-#from flask.ext.mysqldb import MySQL
-#app = Flask(__name__)
+from flask.ext.mysqldb import MySQL
 
+mail = Mail(app)
 
-#mysql = MySQL(app)
+app.config['SECRET_KEY'] = '!q76$@8(8sdscjksfcbrvy; %$#'
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 465
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = 'cmclaren89@gmail.com'
+app.config["MAIL_PASSWORD"] = 'wwhiimwvcrbnenpt'
 
+mail.init_app(app)
+
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'RenVenrascal'
+app.config['MYSQL_DB'] = 'finalproj'
+
+# mysql = MySQL(app)
+
+# --  Test database  --------------------------------------------------------------------------------------------------------------------------
 @app.route('/testdb/')
 def testdb():
     if db.session.query("1").from_statement("SELECT 1").all():
@@ -24,73 +40,114 @@ def testdb():
     else:
 	return 'something is broke'
 
-#if __name__ == '__main__':
-#    app.run(debug=True)
-###
-# Routing for your application.
-###
 
-@app.route('/')
-def home(name=None):
-    """Render the website's home page."""
-    return render_template('home2.html',name=name)
+# --  Home Page  -------------------------------------------------------------------------------------------------------------------------------
+@app.route('/', methods=['GET'])
+def home():
     
-
-@app.route('/about/')
+    return render_template('home.html')
+    
+# --  About Page  -------------------------------------------------------------------------------------------------------------------------------
+@app.route('/about/', methods=['GET'])
 def about(name=None):
-    """Render the website's about page."""
-    return render_template('about.html')
+    
+    return render_template('about.html', name=name)
 
-@app.route('/profile/')
+# --  View Profiles  ----------------------------------------------------------------------------------------------------------------------------
+@app.route('/profile/', methods=['GET', 'POST'])
 def profile(name=None):
-    """Render the website's profile page."""
-    return render_template('profile.html',name=name)
     
-@app.route('/contact/')
-def contact(name=None):
-    """Render the website's contact page."""
-    return render_template('contact.html',name=name)
+    return render_template('profile.html', name=name)
 
-
-
-@app.route('/profile/edit/')
-def profileedit(name=None):
-    """Render the website's edit profile page."""
-    return render_template('profileedit.html',name=name)
-    
-
-
-@app.route('/login/')
-def login(name=None):
-    """Render the website's login page."""
-    return render_template('login.html',name=name)
-    #
+# --  View Reports  ------------------------------------------------------------------------------------------------------------------------------
 @app.route('/report/')
 def report(name=None):
     """Render the website's about page."""
     return render_template('report.html',name=name)
 
-@app.route('/report/edit/')
-def reportadd(name=None):
-    """Render the website's about page."""
-    return render_template('reportedit.html',name=name)
+    
+# --  User Feedback  -----------------------------------------------------------------------------------------------------------------------------    
+@app.route('/contact/', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm()
 
-@app.route('/signup', methods=['GET', 'POST'])
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('contact.html', form=form)
+        else:
+            msg = Message(form.subject.data, sender=request.form['email'], recipients=['cmclaren89@gmail.com'])
+            msg.body = """
+            From: %s <%s>
+            %s
+            """ % (form.name.data, form.email.data, form.message.data)
+            mail.send(msg)
+            return 'Form posted.'
+
+    elif request.method == 'GET':
+        return render_template('contact.html', form=form)
+
+# --  Input Forms  -------------------------------------------------------------------------------------------------------------------------------
+@app.route('/forms/')
+def forms():
+    return render_template('forms.html')
+
+@app.route('/profile/edit/', methods=['GET', 'POST'])
+def profileedit():
+    form = ProfileForm()
+
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('profileedit.html', form=form)
+        else:
+            profile = Profile(form.picture,form.home_address,form.gender,form.first_name ,form.middle_name,form.last_name,form.weapon_of_choice ,form.height,form.weight,form.build,form.complexion,form.hair_colour ,form.eye_colour ,form.ethnicity ,form.scars ,form.work_address ,form.work_contact_no,form.job_title ,form.mother_first_name ,form.mother_maiden_name,form.mother_surname,form.mother_address,form.mother_nationality,form.father_first_name,form.father_surname ,form.father_address,form.father_nationality,form.date_create)
+            db.session.add(profile)
+            db.session.commit()
+            return 'Form posted.'
+
+    elif request.method == 'GET':
+        return render_template('profileedit.html', form=form)
+    
+@app.route('/report/edit/', methods=['GET', 'POST'])
+def reportedit():
+    form = ReportForm()
+
+    if request.method == 'POST':
+        return 'Form posted.'
+
+    elif request.method == 'GET':
+        return render_template('reportedit.html', form=form)
+
+# --  Site Login  --------------------------------------------------------------------------------------------------------------------------------
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('login.html', form=form)
+    return render_template('login.html',form=form)
+    #
+
+
+
+@app.route('/signup/', methods=['GET', 'POST'])
 def signup():
-  form = SignupForm()
+    form = SignupForm()
    
-  if request.method == 'POST':
-    if form.validate() == False:
-      return render_template('signup.html', form=form)
-    else:
-      new_officer = Officer(form.firstname.data, form.lastname.data, form.email.data, form.password.data)
-      db.session.add(new_officer)
-      db.session.commit()
-       
-      return "[1] Create a new user [2] sign in the user [3] redirect to the user's profile"
-   
-  elif request.method == 'GET':
-    return render_template('signup.html', form=form)
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('All fields are required.')
+            return render_template('signup.html', form=form)
+        else:
+            new_officer = Officer(form.firstname.data, form.lastname.data, form.email_address.data, form.password.data)
+            db.session.add(new_officer)
+            db.session.commit()
+        return "[1] Create a new user [2] sign in the user [3] redirect to the user's profile"
+    elif request.method == 'GET':
+        return render_template('signup.html', form=form)
  ###
 # The functions below should be applicable to all Flask apps.
 ###
@@ -117,5 +174,6 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
+
 
 
