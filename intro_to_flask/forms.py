@@ -1,17 +1,45 @@
 from flask_wtf import Form
-from wtforms import TextField, FileField, TextAreaField, DateTimeField, SubmitField, IntegerField, validators, ValidationError
+from wtforms import TextField, FileField, PasswordField, TextAreaField, DateTimeField, SubmitField, IntegerField, SelectField, validators, ValidationError
+from models import db, Officer
  
 class ContactForm(Form):
-  name = TextField("Name", [validators.Required("Please enter your name.")])
-  email = TextField("Email", [validators.Required("Please enter your email address."), validators.Email("Please enter your email address.")])
-  subject = TextField("Subject", [validators.Required("Please enter a subject.")])
-  message = TextAreaField("Message", [validators.Required("Please enter a message.")])
-  submit = SubmitField("Send")
+	name = TextField("Name", [validators.Required("Please enter your name.")])
+	email = TextField("Email", [validators.Required("Please enter your email address."), validators.Email("Please enter your email address.")])
+	subject = TextField("Subject", [validators.Required("Please enter a subject.")])
+	message = TextAreaField("Message", [validators.Required("Please enter a message.")])
+	submit = SubmitField("Send")
+
+class LoginForm(Form):
+	name = TextField("Name", [validators.Required("Please enter your name.")])
+	password = PasswordField('Password', [validators.Required("Please enter a password.")])
+	submit = SubmitField("Login")
+
+class SignupForm(Form):
+	firstname = TextField("First name",  [validators.Required("Please enter your first name.")])
+	lastname = TextField("Last name",  [validators.Required("Please enter your last name.")])
+	email_address = TextField("Email",  [validators.Required("Please enter your email address."), validators.Email("Please enter your email address.")])
+	password = PasswordField('Password', [validators.Required("Please enter a password.")])
+	submit = SubmitField("Create Profile")
+
+ 
+	def __init__(self, *args, **kwargs):
+		Form.__init__(self, *args, **kwargs)
+
+	def validate(self):
+		if not Form.validate(self):
+	  		return False
+	 
+		user = Officer.query.filter_by(email_address = self.email_address.data.lower()).first()
+		if user:
+	  		self.email.errors.append("That email is already taken")
+	  		return False
+		else:
+	  		return True
 
 class ProfileForm(Form):
 	picture = FileField("Photo")
-	gender = TextField("Gender")
-	first_name = TextField("First Name")
+	gender = SelectField(u'Gender', choices=[('select', "Select"), ('female', "Female"), ('male', "Male")])
+	first_name = TextField("First Name", [validators.Required("Please enter your name.")])
 	middle_name = TextField("Middle Name")
 	last_name = TextField("Last Name")
 	weapon_of_choice = TextField("Weapon Of Choice")
